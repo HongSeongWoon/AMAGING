@@ -7,7 +7,7 @@
 <title>학부모 메인 페이지</title>
  <script src="resources/js/common.js"></script>
 <style>
-#bitch {width:100%; height:100%;
+#frame {width:100%; height:100%;
    position:absolute; top:5%;}
 #logo {
   width: 30%;
@@ -228,7 +228,7 @@ position:absolute; left:45%; top:1%;
 <body onload="">
    <form name="" action="" method="get">
       <div id="basic">
-         <div id="bitch">
+         <div id="frame">
             <div id="logo"></div>
              <div id="sessionBox"><span id="session">정재영 부모 김현우님 환영합니다.</span></div>
             <div id="logOut">

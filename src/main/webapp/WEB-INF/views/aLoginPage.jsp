@@ -23,7 +23,7 @@
 		  }
 #logo	{width:35%; height:20%; 
 		 position:absolute; top:20%; left:50%; 
-		 background-image:url(resources/images/'관리자로고.png'); background-size:95% 70%;   background-repeat : no-repeat; background-position:left center;   transform: translate(-50%, -50%);
+		 background-image:url(resources/images/관리자로고.png); background-size:95% 70%;   background-repeat : no-repeat; background-position:left center;   transform: translate(-50%, -50%);
 		 }
 #inBody   {width:30%; height:30%;
 		   position:absolute; top:50%; left:50%;
@@ -53,12 +53,12 @@
 #findPassword {height: 8%; width:24.5%;font-size:100%;
 		   	   position:absolute; top:59.1%; left:38%; 
 		   	   text-align:center;
-		   	   background-image:url(resources/images/'돋보기.png');  background-size:15% 85%;  background-repeat : no-repeat; background-position:100% 90%; cursor: pointer;
+		   	   background-image:url(resources/images/돋보기.png);  background-size:15% 85%;  background-repeat : no-repeat; background-position:100% 90%; cursor: pointer;
 		   	   }
 		   	   
 #join{height: 8%; width:17%;font-size:100%;
 		   	   position:absolute; top:59.1%; left:7%;  
-		   	   text-align:left; background-image:url(resources/images/'사람.png');  background-size:20% 85%;  background-repeat : no-repeat; background-position:85% 85%;cursor: pointer;
+		   	   text-align:left; background-image:url(resources/images/사람.png);  background-size:20% 85%;  background-repeat : no-repeat; background-position:85% 85%;cursor: pointer;
 		     }
 #bottombox { width:64%;  height:10%;
 			margin-top:31.6%;}		   

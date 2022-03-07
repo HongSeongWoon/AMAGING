@@ -7,7 +7,7 @@
 <title>선생님 성적 페이지</title>
  <script src="resources/js/common.js"></script>
 <style>
-#bitch {width:100%; height:100%;
+#frame {width:100%; height:100%;
    position:absolute; top:5%;}
 #logo {
    width: 30%;
@@ -16,7 +16,7 @@
    left: 5%;
    top:2.5%;
    float: left;
-   background-image: url(resources/images/'선생님로고1.png');
+   background-image: url(resources/images/선생님로고1.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: left center;
@@ -104,7 +104,7 @@
    margin-top:5%;
    margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'학사일정4.png');
+   background-image: url(resources/images/학사일정4.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: center center;
@@ -116,7 +116,7 @@
 #twoB {
 margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'성적.png');
+   background-image: url(resources/images/성적.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -129,7 +129,7 @@ margin-bottom:3%;
 #threeB {
 margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'출석.png');
+   background-image: url(resources/images/출석.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -141,7 +141,7 @@ margin-bottom:3%;
 #fourB {
 margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'시간표.png');
+   background-image: url(resources/images/시간표.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -152,7 +152,7 @@ margin-bottom:3%;
 #fiveB {
 margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'상담.png');
+   background-image: url(resources/images/상담.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -160,7 +160,7 @@ margin-bottom:3%;
    height:9%;
 }
 #sixB{ float: left;
-   background-image: url(resources/images/'정보수정.png');
+   background-image: url(resources/images/정보수정.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -243,7 +243,7 @@ position:absolute; left:45%; top:1%;
 <body onload="">
    <form name="" action="file:///C:/" method="get">
       <div id="basic">
-         <div id="bitch">
+         <div id="frame">
             <div id="logo"></div>
              <div id="sessionBox"><span id="session">김현우님 환영합니다.</span></div>
             <div id="logOut">

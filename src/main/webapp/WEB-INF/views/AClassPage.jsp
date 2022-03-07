@@ -7,7 +7,7 @@
 <title>관리자 수업관리 페이지</title>
  <script src="resources/js/common.js"></script>
 <style>
-#bitch {
+#frame {
    width: 100%;
    height: 100%;
    position: absolute;
@@ -22,7 +22,7 @@
    left: 5%;
    top:2.5%;
    float: left;
-   background-image: url(resources/images/resources/images/'관리자로고1.png');
+   background-image: url(resources/images/resources/images/관리자로고1.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: left center;
@@ -80,7 +80,7 @@
    height: 80%;
    float: right;
    margin-right: 5.5%;
-   background-image: url(resources/images/'.png');
+   background-image: url(resources/images/.png);
    background-size: 30% 55%;
    background-repeat: no-repeat;
    background-position: center center;
@@ -110,7 +110,7 @@
    margin-top: 5%;
    margin-bottom: 3%;
    float: left;
-   background-image: url(resources/images/'학사일정4.png');
+   background-image: url(resources/images/학사일정4.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: center center;
@@ -122,7 +122,7 @@
 #twoB {
    margin-bottom: 3%;
    float: left;
-   background-image: url(resources/images/'수업관리.png');
+   background-image: url(resources/images/수업관리.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -135,7 +135,7 @@
    margin-top:35%;
    margin-bottom: 3%;
    float: left;
-   background-image: url(resources/images/'납부내역.png');
+   background-image: url(resources/images/납부내역.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -147,7 +147,7 @@
 #fourB {
    margin-bottom: 3%;
    float: left;
-   background-image: url(resources/images/'인사관리.png');
+   background-image: url(resources/images/인사관리.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -157,7 +157,7 @@
 
 #fiveB {
    float: left;
-   background-image: url(resources/images/'상담.png');
+   background-image: url(resources/images/상담.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -242,7 +242,7 @@ position:absolute; left:45%; top:1%;
 <body onload="">
    <form name="" action="" method="get">
       <div id="basic">
-         <div id="bitch">
+         <div id="frame">
 
 
             <span id="logo"></span>

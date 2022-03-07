@@ -20,7 +20,7 @@
 	
 	margin-left: 34%;
 	margin-top: 3%;
-	background-image: url(resources/images/'콜라보로고.png');
+	background-image: url(resources/images/콜라보로고.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position:center;

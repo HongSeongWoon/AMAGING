@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SPMain</title>
- <script src="resources/js/common.js"></script>
+<title>TAMain</title>
+<script src=""></script>
 <script>
 	function test() {
 		let form = document.getElementById("damnnn");
@@ -23,94 +23,134 @@
 	position: fixed;
 	width: 99%;
 	height: 100%;
-	border: 1px solid #000000;
 	
 }
 
 #body {
 	width: 100%;
 	height: 99%;
-	border: 1px solid #000000;
-	background-color: #000000;
 	
+	background-color: #F6F6F6;
 }
 
 #logo {
-	width: 30%;
-	height: 13%;
+	width: 20%;
+	height: 15%;
 	
 	position: absolute;
 	top: 6%;
-	left: 8%;
-	background-image:url('선생관리자로고.png');  background-size:100%  100%;  background-repeat : no-repeat; background-position:right center;
+	left: 41%;
+	background-image:url(resources/images/최종로고.png);  background-size:100%  100%;  background-repeat : no-repeat; background-position:right center;
 }
 
 #arm {
 	width: 85%;
-	height: 53%;
-	border: 1px solid #000000;
-	position: absolute;
-	top: 250px;
-	left: 8%;
+	height: 50%;
 	
+	position: absolute;
+	top: 25%;
+	left: 8%;
+ float:left; background-image:url(resources/images/선생님메인.png);  background-size:100%  100%;  background-repeat : no-repeat; background-position:right center; border-radius: 15px ; 
 }
 
 #loginMom {
 	width: 30%;
-	height: 100px;
+	height: 30%;
 	position: absolute;
-	top: 75px;
-	left: 63.2%;
+	top: 20%;
+	left: 70%;
+	
 	
 	
 }
 
 #loginMom div {
-	display: inline-block;
+	display: inline-block; 
 }
 
-#tLoginB {
+ #sLoginB {
 	width: 40%;
-	height:85%;
-	margin-left: 19%;
-	background-color: #00A6EF;
+	height:20%;
+	border-radius: 10px ;
+	position:absolute; top:60%; left:36.5%;
+ background-color: transparent;
 	cursor: pointer;
-	border-radius: 15px ;
-	box-shadow: 5px 5px 5px #969696;
+	border: 4px dotted white;
+
 	font-size: 20px;
-	border: 0;
-	outline: 0;
-}
 
-#tLoginB:active {
-	background-color: #0042ED ;
-	color: #FFFFFF;
-	width: 40%;
-	height: 85%;
-	box-shadow: none;
-}
 
-#aLoginB {
-	width: 40%;
-	height:85%;
-	margin-left: -1%;
-	background-color: #EF90FF ;
-	cursor: pointer;
-	border-radius: 15px ;
-	box-shadow: 5px 5px 5px #969696;
-	font-size: 20px;
-	color: #000000;
-	border: 0;
-	outline: 0;
-}
+}  
 
-#aLoginB:active {
-	background-color: #E14FCA ;
-	color: #FFFFFF;
-	width: 40%;
-	height: 85%;
-	box-shadow: none;
+
+#pointer {
+  width: 50%;
+  height: 20%;
+  position: relative; left:35%; top:30%;
+  background: #00A6EF;
+   cursor: pointer;
+   text-align:center;
+  
 }
+#pointer:before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-right: 29px solid #00A6EF;
+  border-top: 29px solid transparent;
+  border-bottom: 29px solid transparent;
+}
+#pointer:after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-right: 29px solid #F6F6F6;
+  border-top: 29px solid transparent;
+  border-bottom: 29px solid transparent;
+}
+#pointer2 {
+   width: 50%;
+  height: 20%;
+  position: relative; left:35%; top:30%;
+  background: #EF90FF  ;
+   cursor: pointer;
+   text-align:center;
+   font-size:100%;
+   text-align:center;
+	}
+ 
+ #pointer2:before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-right: 29px solid #EF90FF  ;
+  border-top: 29px solid transparent;
+  border-bottom: 29px solid transparent;
+} 
+  
+
+#pointer2:after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-right: 29px solid #F6F6F6 ;
+  border-top: 29px solid transparent;
+  border-bottom: 29px solid transparent;
+}
+  
+
 
 
 .box {
@@ -119,23 +159,29 @@
 	font-size: 100px;
 	color: #fff;
 	font-weight: bold;
+
 }
 
 .slider {
-	width: 25%;
-	height: 13%;
+	width: 30%;
+	height: 12%;
 	margin-top: 1%;
 	
 
 }
-#banner{ position:absolute; left:38%; top:40%;
+#banner{ position:absolute; left:50.5%; top:46%;
 	width:100%; height:100%;}
 #slider2{margin-top:16%;}
-#slider1{position:fixed; top:83.5%; width:24.8%}
+#slider1{position:fixed; top:76.2%; width:30%;right:49.6%; }
 
-#arm	{float:left; background-image:url('.png');  background-size:100%  100%;  background-repeat : no-repeat; background-position:right center;}
+
 
 #subphoto { width:40%; height:40%;}
+#bottom{ position:absolute;  top:87.3%; width:110%; height:10%;   }
+h1{color:#A6A6A6; font-size:30%; position:absolute; left:34%; top:36%; }
+#smphoto{  background-image:url(resources/images/작은로고.png);  background-size:100%  100%;  background-repeat : no-repeat; background-position:center center;  width:5%; height:17%; position:absolute; top:40%; left:28.5%;}
+#st{color:#F6F6F6; font-size:30px; font-weight:1000; line-height: 50px;   }
+#pa{color:#F6F6F6; font-size:30px; font-weight:1000; line-height: 50px;   }
 </style>
 
 </head>
@@ -149,47 +195,55 @@
 				<div id="subphoto"></div>
 			    </div>
 				<div id="loginMom">
-					<input type="button" id="tLoginB" value="선생님로그인" onClick="" /> 
-					<input type="button" id="aLoginB" value="관리자로그인" onClick="" />
+					<div id="pointer"  onClick="" ><span id="st"> 선생님로그인</span></div> 
+					<div  id="pointer2"  onClick=""><span id="pa">관리자로그인</span></div>
 				</div>
 
 			<div id="banner">
 				<section id="slider1" class="slider">
 					<div class="box" style="background-color: #000;">
-						<img src="이벤트배너.jpg" width="100%" height="100%"  />
+						<img src="resources/images/이벤트배너.jpg" width="100%" height="100%"  />
 					</div>
 					<div class="box" style="background-color: #000;">
-						<img src="배송배너.jpg" width="100%" height="100%"  />
+						<img src="resources/images/배송배너.jpg" width="100%" height="100%"  />
 					</div>
 					<div class="box" style="background-color: #000;">
-						<img src="커피배너.jpg" width="100%" height="100%" />
+						<img src="resources/images/커피배너.jpg" width="100%" height="100%" />
 					</div>
 					<div class="box" style="background-color: #000;">
-						<img src="바우처.jpg" width="100%" height="100%"  />
+						<img src="resources/images/바우처.jpg" width="100%" height="100%"  />
 					</div>
 					<div class="box" style="background-color: #000;">
-						<img src="시험배너.jpg" width="100%" height="100%"  />
+						<img src="resources/images/시험배너.jpg" width="100%" height="100%"  />
 					</div>
 				</section>
 
 				<section id="slider2" class="slider">
 					<div class="box" style="background-color: #ff0000;">
-						<img src="수상배너1.jpg" width="100%" height="100%" />
+						<img src="resources/images/수상배너1.jpg" width="100%" height="100%" />
 					</div>
 					<div class="box" style="background-color: #ff0000;">
-						<img src="수상배너2.jpg" width="100%" height="100%" />
+						<img src="resources/images/수상배너2.jpg" width="100%" height="100%" />
 					</div>
 					<div class="box" style="background-color: #ff0000;">
-						<img src="수상배너3.jpg" width="100%" height="100%" />
+						<img src="resources/images/수상배너3.jpg" width="100%" height="100%" />
 					</div>
 					<div class="box" style="background-color: #ff0000;">
-						<img src="수상배너4.jpg" width="100%" height="100%" />
+						<img src="resources/images/수상배너4.jpg" width="100%" height="100%" />
 					</div>
 					<div class="box" style="background-color: #ff0000;">
-						<img src="수상배너5.jpg" width="100%" height="100%" />
+						<img src="resources/images/수상배너5.jpg" width="100%" height="100%" />
 					</div>
 				</section>
 			</div>
+			<div id="bottom"><h1>(주)어메이징 대표 : 김현우 사업자등록번호 : 213-15-419513 통신판매업신고번호 : 제2013-인천미추홀구-1245<br>
+				사업자등록확인 주소 : 인천 미추홀구 매소홀로488번길 6-32 태승빌딩 5층  TEL : 0507-1491-3360 FAX : 0507-1491-3360<br>
+							COPYRIGHT (C) 2016 AMAGING.COM ALL RIGHTS RESERVED.</h1>
+				<div style=" font-size:80%; color:#5D5D5D;  padding:10px; width: 4%; height: 6%; position:absolute; top:68%; left:33.5%;cursor: pointer; text-decoration: underline; " onclick="location.href='https://map.naver.com/v5/entry/place/36395746?c=14101418.5597610,4500465.0064930,13,0,0,0,dh&placePath=%2Fhome%3Fentry=plt';">
+						찾아오시는길</div>
+			
+				<div id="smphoto"> </div>
+				
 			</div>
 		</div>
 	</form>
