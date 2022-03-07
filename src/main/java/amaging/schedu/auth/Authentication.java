@@ -38,7 +38,9 @@ public class Authentication extends amaging.schedu.common.CommonMethod{
 	private void login(ModelAndView mav) {
 
 	}
-	private void logout(ModelAndView mav) {}
+	private void logout(ModelAndView mav) {
+		
+	}
 	private void join(ModelAndView mav) {}
 	private void getChildList(ModelAndView mav) {}
 	

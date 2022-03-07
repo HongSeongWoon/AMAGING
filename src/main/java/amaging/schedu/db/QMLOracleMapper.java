@@ -6,6 +6,7 @@ import amaging.schedu.bean.Login;
 import amaging.schedu.bean.RegMember;
 
 public interface QMLOracleMapper {
+	/*auth*/
 	public int isUser(Login login);
 	public int isStudentEmail(Login login);
 	public int isParentsEmail(Login login);
