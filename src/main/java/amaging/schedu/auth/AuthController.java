@@ -1,6 +1,7 @@
 package amaging.schedu.auth;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,11 +12,12 @@ import amaging.schedu.bean.UserInfo;
 
 @Controller
 public class AuthController {
-
+	@Autowired
 	private Authentication auth;
+	
 	@PostMapping("/Login")
 	public ModelAndView login(ModelAndView mav, @ModelAttribute Login lg) {
-				
+		auth.backController(2,mav.addObject("login", lg));
 		return mav;
 	}
 	@PostMapping("/Logout")

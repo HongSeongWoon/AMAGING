@@ -209,8 +209,8 @@ h1{color:#A6A6A6; font-size:30%; position:absolute; left:34%; top:36%; }
             <div id="subphoto"></div>
              </div>
             <div id="loginMom">
-               <div id="pointer"  onClick="getPage('1');" ><span id="st"> 학생로그인</span></div> 
-               <div id="pointer2"  onClick="getPage('2')"><span id="pa">학부모로그인</span></div>
+               <div id="pointer"  onClick="getPage('2');" ><span id="st"> 학생로그인</span></div> 
+               <div id="pointer2"  onClick="getPage('1')"><span id="pa">학부모로그인</span></div>
             </div>
 
          <div id="banner">

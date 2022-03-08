@@ -54,11 +54,12 @@ public class MovePageController {
    
    @RequestMapping(value = "/LoginPage", method = RequestMethod.GET)
    public String moveLoginPage(Model model, @ModelAttribute Login lg) {
+	   System.out.println("여기");
       String page=null;
       if(lg.getUserCode() == 3) {
          /*선생님로그인페이지*/
     	  page = "tLoginPage";
-      }else if(lg.getUserCode() == 1) {
+      }else if(lg.getUserCode() == 2) {
          /*학생로그인페이지*/
     	  page = "sLoginPage";
       }else if(lg.getUserCode() == 4) {
