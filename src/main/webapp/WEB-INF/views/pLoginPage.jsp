@@ -11,9 +11,7 @@
 <script>
 
 function authentication(userCode){
-   const f = document.getElementsByName("login")[0];
-   const hidden = makeInputElement("hidden","userCode",userCode,"");
-  
+ 
    const userData = [document.getElementsByName("email")[0],
    document.getElementsByName("password")[0]];
    
@@ -25,9 +23,17 @@ function authentication(userCode){
       } 
    
    }
-   f.appendChild(hidden);
-   f.submit();
+   getPage("login","/Login");
+
 }
+
+function getPage(formName,action){
+	   const form = document.getElementsByName(formName)[0];
+	      form.setAttribute("action",action);
+	      form.submit();
+	   
+	}
+
 function isEmpty(obj){
    let check = true;
    if(obj.value == ""){
@@ -46,6 +52,22 @@ function makeInputElement(type, name, value, placeholder){
     return input;
  }
 
+function makeForm(fname, faction, fmethod){
+	const form = document.createElement("form");
+	if(fname != ""){form.setAttribute("name", fname);}
+	form.setAttribute("action", faction);
+	form.setAttribute("method", fmethod);
+	return form;
+}
+
+/*회원가입페이지 이동*/
+function getJoinPage(userCode) {
+   const f =  makeForm("","/JoinPage","get");	
+   const hidden = makeInputElement("hidden","userCode",userCode,"");
+   f.appendChild(hidden);
+   document.body.appendChild(f);
+   f.submit();
+}
 </script>
 <style>
 
@@ -104,7 +126,8 @@ function makeInputElement(type, name, value, placeholder){
 #pabox{ width:90%; height:75%;  position:fixed;   }
 </style>
 <body class ="background">
-<form name ="login" action="/Login" method="post">
+<form name ="login"  method="post">
+<input	type="hidden" value="1" name="userCode" />
 <div id="basic">
 <div id="body">
 	<div id="logo"></div>
@@ -120,13 +143,13 @@ function makeInputElement(type, name, value, placeholder){
 		</div>
 		<div>
  			<div>
-				<input type="button" id="loginbtn" value="LOGIN" onClick="authentication('1')"/>
+				<input type="button" id="loginbtn" value="LOGIN" onClick="authentication()"/>
 			</div>
 		</div>
    
 		<div id="bottombox">
 			<div id="findPassword"  onClick="">비밀번호 찾기 </div>
-      		<div id="join" onClick="">회원가입</div>
+      		<div id="join" onClick="getPage()">회원가입</div>
 		</div>
 	</div>
 </div>

@@ -53,9 +53,8 @@ public class MovePageController {
    }
    
    @RequestMapping(value = "/LoginPage", method = RequestMethod.GET)
-   public String moveLoginPage(Model model, @ModelAttribute Login lg) {
-	   System.out.println("여기");
-      String page=null;
+   public String moveLoginPage(ModelAndView mav, @ModelAttribute Login lg) {
+	  String page=null;
       if(lg.getUserCode() == 3) {
          /*선생님로그인페이지*/
     	  page = "tLoginPage";
@@ -72,8 +71,9 @@ public class MovePageController {
       return page;
    }
    @GetMapping("/JoinPage")
-   public String studentJoinpage() {
-      return "join";
+   public String studentParentJoinpage(ModelAndView mav, @ModelAttribute Login lg) {
+	   
+	      return "join";
    }
    @PostMapping("/AcPlanPage")
    public ModelAndView acPlanPage(ModelAndView mav, @ModelAttribute UserInfo uf) {

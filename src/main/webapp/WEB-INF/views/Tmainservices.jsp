@@ -6,6 +6,13 @@
 <meta charset="UTF-8">
 <title>선생님 메인 페이지</title>
  <script src="resources/js/common.js"></script>
+ <script>
+ /*function test(){
+	 alert(document.getElementById("userId").value);
+	 alert(document.getElementById("userCode").value);
+	 alert(document.getElementById("email").value);
+ }*/
+ </script>
 <style>
 #frame {width:100%; height:100%;
    position:absolute; top:5%;}
@@ -219,7 +226,10 @@ position:absolute; left:45%; top:1%;
       <div id="basic">
          <div id="frame">
             <div id="logo"></div>
-             <div id="sessionBox"><span id="session">김현우님 환영합니다.</span></div>
+             <div id="sessionBox"><span id="session">${sessionInfo.userName}님 환영합니다.
+             	<input	type="hidden" value='${sessionInfo.userId}' id="userId" />
+				<input	type="hidden" value='${sessionInfo.userCode}' id="userCode" />
+            </span></div>
             <div id="logOut">
                <input type="button" id="btn" value="로그아웃" onclick="" onmouseover="mouseOver(this)" onmouseout="mouseLeave(this)">
             </div>

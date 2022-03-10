@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import amaging.schedu.bean.Login;
+import amaging.schedu.bean.UserInfo;
 import amaging.schedu.db.QMLOracleMapper;
 @Service
 public class Authentication extends amaging.schedu.common.CommonMethod{
@@ -38,23 +39,33 @@ public class Authentication extends amaging.schedu.common.CommonMethod{
 	}
 	private void login(ModelAndView mav) {
 		Login lg = new Login();
+		UserInfo uf = new UserInfo();
 		lg = (Login) mav.getModel().get("login");
 		System.out.println(lg.getUserCode());
 		String page = "";// 1번 page
 
 		try {
 
-			if (lg.getUserCode() == 3) {
-				mav.addObject("accessInfo", om.isTeacherEmail(lg));
+			if (lg.getUserCode() == 3&&this.convertToBoolean(om.isTeacherEmail(lg))) {
+				/*세션bean에 정보담기*/
+				uf=om.getTeacherInfo(lg);
+				this.om.setAccessHistory(uf);
+				mav.addObject("accessInfo", uf);
 				page = "Tmainservices";
-			}else if(lg.getUserCode() == 1){
-				mav.addObject("accessInfo", om.isParentsEmail(lg));
+			}else if(lg.getUserCode() == 1&&this.convertToBoolean(om.isParentsEmail(lg))){
+				uf=om.getParentInfo(lg);
+				this.om.setAccessHistory(uf);
+				mav.addObject("accessInfo", om.getParentInfo(lg));
 				page = "Pmainservices";
-			}else if(lg.getUserCode() == 2){
-				mav.addObject("accessInfo", om.isStudentEmail(lg));
+			}else if(lg.getUserCode() == 2&&this.convertToBoolean(om.isStudentEmail(lg))){
+				uf=om.getStudentInfo(lg);
+				this.om.setAccessHistory(uf);
+				mav.addObject("accessInfo", om.getStudentInfo(lg));
 				page = "Smainservices";
-			}else {
-				mav.addObject("accessInfo", om.isAdminCode(lg));
+			}else if(lg.getUserCode() == 4&&this.convertToBoolean(om.isAdminCode(lg))) {
+				uf=om.getAdminInfo(lg);
+				this.om.setAdminAccessHistory(uf);
+				mav.addObject("accessInfo", om.getAdminInfo(lg));
 				page = "Amainservices";
 			}
 

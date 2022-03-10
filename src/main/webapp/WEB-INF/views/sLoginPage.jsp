@@ -10,24 +10,32 @@
 </head>
 <script>
 
+
 function authentication(userCode){
-   const f = document.getElementsByName("login")[0];
-   const hidden = makeInputElement("hidden","userCode",userCode,"");
-  
-   const userData = [document.getElementsByName("email")[0],
-   document.getElementsByName("password")[0]];
-   
-   const message = [ "email 입력해 주세요!", "퍠쓰워드 입력해 주세요"];
-   for (let index = 0; index < userData.length; index++) {
-      if (!isEmpty(userData[index])) {
-         alert(message[index]);
-         return;
-      } 
-   
-   }
-   f.appendChild(hidden);
-   f.submit();
-}
+	 
+	   const userData = [document.getElementsByName("email")[0],
+	   document.getElementsByName("password")[0]];
+	   
+	   const message = [ "email 입력해 주세요!", "퍠쓰워드 입력해 주세요"];
+	   for (let index = 0; index < userData.length; index++) {
+	      if (!isEmpty(userData[index])) {
+	         alert(message[index]);
+	         return;
+	      } 
+	   
+	   }
+	   getPage("login","/Login");
+
+	}
+
+	function getPage(formName,action){
+		   const form = document.getElementsByName(formName)[0];
+		      form.setAttribute("action",action);
+		      form.submit();
+		   
+		}
+
+
 function isEmpty(obj){
    let check = true;
    if(obj.value == ""){
@@ -45,6 +53,13 @@ function makeInputElement(type, name, value, placeholder){
     
     return input;
  }
+
+/*회원가입페이지 이동*/
+function getJoinPage(userCode) {
+   const f =  makeForm("","/JoinPage","get");	
+   document.body.appendChild(f);
+   f.submit();
+}
 
 </script>
 <style>
@@ -105,6 +120,7 @@ function makeInputElement(type, name, value, placeholder){
 </style>
 <body class ="background">
 <form name ="login" action="/Login" method="post">
+<input	type="hidden" value='2' name="userCode" />
 <div id="basic">
 <div id="body">
 	<div id="logo"></div>
@@ -126,7 +142,7 @@ function makeInputElement(type, name, value, placeholder){
    
 		<div id="bottombox">
 			<div id="findPassword"  onClick="">비밀번호 찾기 </div>
-      		<div id="join" onClick="">회원가입</div>
+      		<div id="join" onClick="getJoinPage()">회원가입</div>
 		</div>
 	</div>
 </div>
