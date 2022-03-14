@@ -9,6 +9,7 @@ public class UserInfo {
 	int userCode;
 	String acCode;
 	String studentId;
+	String stName;
 	String tier;
 	String email;
 	
