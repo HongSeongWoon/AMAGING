@@ -1,6 +1,8 @@
 package amaging.schedu.db;
 
 
+import java.util.List;
+
 import amaging.schedu.bean.ChildCode;
 import amaging.schedu.bean.Login;
 import amaging.schedu.bean.RegMember;
@@ -21,6 +23,8 @@ public interface QMLOracleMapper {
 	/*접속기록*/
 	public int setAccessHistory(UserInfo uf);
 	public int setAdminAccessHistory(UserInfo uf);
+	public int setAccessOutHistory(UserInfo uf);
+	public int setAdminAccessOutHistory(UserInfo uf);
 	
 	/*세션정보*/
 	public UserInfo getTeacherInfo(Login login);
@@ -28,10 +32,12 @@ public interface QMLOracleMapper {
 	public UserInfo getStudentInfo(Login login);
 	public UserInfo getAdminInfo(Login login);
 	
-	
-	
+	/*회원등록*/
 	public int setStudentData(RegMember regM);
 	public int setParentsData(RegMember regM);
-	public int displayChildList(ChildCode child);
+	public int setTeacherData(RegMember regM);
+	
+	/*자식리스트*/
+	public List<ChildCode> displayChildList(ChildCode child);
 	
 }
