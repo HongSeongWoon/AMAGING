@@ -6,4 +6,7 @@ import lombok.Data;
 public class RegParent {
 	String userId;
 	String pEmail;
+	String prCode;
+	String prName;
+	String studentName;
 }

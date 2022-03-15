@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학생 로그인</title>
- <script src="resources/js/common.js"></script>
+<title>부모님 로그인</title>
+<script src="resources/js/common.js"></script>
 <script src="resources/js/login.js"></script>
 </head>
+
 
 <style>
 
@@ -24,7 +25,7 @@
 		  }
 #logo	{width:35%; height:20%; 
 		 position:absolute; top:20%; left:50%; 
-		 background-image:url(resources/images/로고.png); background-size:95% 70%;   background-repeat : no-repeat; background-position:left center;   transform: translate(-50%, -50%);
+		 background-image:url(resources/images/부모님로고.png); background-size:95% 70%;   background-repeat : no-repeat; background-position:left center;   transform: translate(-50%, -50%);
 		 }
 #inBody   {width:30%; height:30%;
 		   position:absolute; top:50%; left:50%;
@@ -33,20 +34,20 @@
 #welcome  {text-align:center; font-size:35px; color: #000000;
 		   position:absolute; top:-3%; left: 30%;
 		   }
-.inputE    {height: 20%;width:60%;font-size:100%;border:1px solid #FFBB00  ;
+.inputE    {height: 20%;width:60%;font-size:100%;border:1px solid #99E000  ;
 		    position:absolute; top:27%; left: 8%;}
 		    
-.inputP    {height: 20%;width:60%; font-size:100%;border:1px solid #FFBB00  ;
+.inputP    {height: 20%;width:60%; font-size:100%;border:1px solid #99E000  ;
 		    position:absolute; top:50%; left: 8%;}
 		    
-#loginbtn {background-color: #FFBB00  ; color:#FFFFFF; height: 48%;
+#loginbtn {background-color: #99E000  ; color:#FFFFFF; height: 48%;
 		   line-height: 1%;width:22%;
            font-size:150%;text-align:center;
            box-shadow : 5px 5px 5px black; transition-duration:0.3s;
            position:absolute; top:23%; left: 65%;cursor: pointer;
            border-radius:8px;}
            
-#loginbtn:active {background-color: #EA7B03   ; color:#FFFFFF; height: 48%;
+#loginbtn:active {background-color: #63AA00  ; color:#FFFFFF; height: 48%;
 				  line-height: 10%;width:22%;
         		  font-size:150%;text-align:center;
          		  box-shadow : none; margin-left:1%; margin-top:1%;}
@@ -66,13 +67,13 @@
 #pabox{ width:90%; height:75%;  position:fixed;   }
 </style>
 <body class ="background" onLoad = "sendMessage('${msg}')">
-<form name ="login" action="/Login" method="post">
-<input	type="hidden" value='2' name="userCode" />
+<form name ="login"  method="post">
+<input	type="hidden" value="1" name="userCode" />
 <div id="basic">
 <div id="body">
 	<div id="logo"></div>
 	<div id="inBody">
-		<div id="welcome">학생 로그인</div>
+		<div id="welcome">학부모 로그인</div>
 		<div id="pabox">
 			<div>
 				<input class = "inputE" type="text" name="email" placeholder="Email 입력 "/>
@@ -83,13 +84,13 @@
 		</div>
 		<div>
  			<div>
-				<input type="button" id="loginbtn" value="LOGIN" onClick="authentication('2')"/>
+				<input type="button" id="loginbtn" value="LOGIN" onClick="authentication()"/>
 			</div>
 		</div>
    
 		<div id="bottombox">
 			<div id="findPassword"  onClick="">비밀번호 찾기 </div>
-      		<div id="join" onClick="getJoinPage(2)">회원가입</div>
+      		<div id="join" onClick="getJoinPage(1)">회원가입</div>
 		</div>
 	</div>
 </div>

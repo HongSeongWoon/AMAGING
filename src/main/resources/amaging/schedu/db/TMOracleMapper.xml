@@ -3,4 +3,24 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="amaging.schedu.db.TMOracleMapper">
+	<select id="getAcList" parameterType="amaging.schedu.bean.AcList" resultType="amaging.schedu.bean.AcList">
+		 SELECT AC_CODE AS ACCODE, AC_NAME AS ACNAME, AC_ADDRESS AS ACADDRESS FROM AC WHERE AC_NAME LIKE '%'||#{acName}||'%'
+	</select>
+	<insert id="regSAcademy" parameterType="amaging.schedu.bean.UserInfo">
+		INSERT INTO SA(SA_STCODE, SA_ACCODE, SA_COCODE)
+		SELECT #{userId},#{acCode},12 
+		FROM DUAL A
+		WHERE NOT EXISTS(SELECT 0 FROM SA 
+		WHERE SA_STCODE= #{userId} AND SA_ACCODE=#{acCode})
+	</insert>
+	<insert id="regTAcademy" parameterType="amaging.schedu.bean.UserInfo">
+		INSERT INTO TA(TA_TCCODE, TA_ACCODE, TA_PASSWORD)
+		SELECT #{userId},#{acCode},4321 
+		FROM DUAL A
+		WHERE NOT EXISTS(SELECT 0 FROM TA 
+		WHERE TA_TCCODE= #{userId} AND TA_ACCODE=#{acCode})
+	</insert>
+	<select id="checkParentEmail" parameterType="amaging.schedu.bean.RegParent" resultType="amaging.schedu.bean.RegParent">
+		SELECT PR_CODE AS PRCODE, PR_NAME AS PRNAME FROM PR WHERE PR_EMAIL=#{pEmail}
+	</select>
 </mapper>

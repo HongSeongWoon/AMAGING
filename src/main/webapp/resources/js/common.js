@@ -45,26 +45,8 @@ function sendMessage(message){
 }
 
 function accessOut(){}
-function getPage(action){
-	const form = makeForm("", action, "post");
-	const userId=document.getElementsByName("userId")[0].value;
-	const userName=document.getElementsByName("userName")[0].value;
-	const userCode=document.getElementsByName("userCode")[0].value;
-	const acCode=document.getElementsByName("acCode")[0].value;
-	const studentId=document.getElementsByName("studentId")[0].value;
-	const tier=document.getElementsByName("tier")[0].value;
-	
-	const clientData = [makeInputElement("hidden", "userId", userId, ""),
-					    makeInputElement("hidden", "userName", userName, ""),
-					    makeInputElement("hidden", "userCode", userCode, ""),
-					    makeInfputElement("hidden", "acCode", acCode, ""),
-					    makeInfputElement("hidden", "studentId", studentId, ""),
-					    makeInfputElement("hidden", "tier", tier, "")];
-	
-	for(idx=0; idx<clientData.length;idx++){
-		form.appendChild(clientData[idx]);
-	}		
-
-	document.body.appendChild(form);
-	form.submit();
+function getPage(formName,action){
+   const form = document.getElementsByName(formName)[0];
+      form.setAttribute("action",action);
+      form.submit();  
 }
