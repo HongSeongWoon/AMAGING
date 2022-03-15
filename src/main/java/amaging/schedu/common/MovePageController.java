@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import amaging.schedu.attendance.Attendance;
-import amaging.schedu.auth.Authentication;
 import amaging.schedu.bean.Login;
 import amaging.schedu.bean.UserInfo;
 import amaging.schedu.calender.Calender;
@@ -26,8 +25,6 @@ import amaging.schedu.timeTable.TimeTable;
 
 @Controller
 public class MovePageController {
-   @Autowired
-   private Authentication auth;
    @Autowired
    private Calender cal;
    @Autowired
@@ -73,9 +70,9 @@ public class MovePageController {
        }
       return page;
    }
-   @RequestMapping(value = "/JoinPage", method = RequestMethod.GET)
+   @GetMapping("/JoinPage")
    public String studentParentJoinpage(ModelAndView mav, @ModelAttribute Login lg) {
-	   auth.backController(6,mav.addObject("login", lg));
+	   
 	      return "join";
    }
    @PostMapping("/AcPlanPage")

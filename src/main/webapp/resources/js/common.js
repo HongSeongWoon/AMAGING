@@ -26,8 +26,7 @@ function getAjaxData(action,data,fn,method){
 	const ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 			if ( ajax.readyState== 4 && ajax.status == 200) {		
-				window[fn](JSON.parse(ajax.responseText));
-						
+				window[fn](JSON.parse(ajax.responseText));						
 			}
 		};
 		if(method=="get"){
@@ -42,47 +41,10 @@ function getAjaxData(action,data,fn,method){
 		
 }
 function sendMessage(message){
-	/* 저는 이렇게 제어했습니다.
-	if(message!=""){
 	alert(message);
-	} */
-	/*원본 */
-	alert(message);
-	
 }
 
-function accessOut(){
-		const form = makeForm("", "/Logout", "post");
-		const uId = document.getElementsByName("userId")[0].value;
-		const uc = document.getElementsByName("userCode")[0].value;
-		
-		const userId = makeInputElement("hidden", "userId", uId, "");
-		const userCode = makeInputElement("hidden", "userCode", uc, "");
-		
-		form.appendChild(userId);
-		form.appendChild(userCode);
-		
-		document.body.appendChild(form);
-	    form.submit();
-
-	   
-}
-function accessAdminOut(){
-		const form = makeForm("", "/Logout", "post");
-		const uId = document.getElementsByName("userId")[0].value;
-		const uc = document.getElementsByName("userCode")[0].value;
-		const ac = document.getElementsByName("acCode")[0].value;
-		const userId = makeInputElement("hidden", "userId", uId, "");
-		const userCode = makeInputElement("hidden", "userCode", uc, "");
-		const acCode = makeInputElement("hidden", "acCode", ac, "");	
-		form.appendChild(userId);
-		form.appendChild(userCode);
-		form.appendChild(acCode);
-		document.body.appendChild(form);
-	    form.submit();
-
-	   
-}
+function accessOut(){}
 function getPage(action){
 	const form = makeForm("", action, "post");
 	const userId=document.getElementsByName("userId")[0].value;
@@ -95,9 +57,9 @@ function getPage(action){
 	const clientData = [makeInputElement("hidden", "userId", userId, ""),
 					    makeInputElement("hidden", "userName", userName, ""),
 					    makeInputElement("hidden", "userCode", userCode, ""),
-					    makeInputElement("hidden", "acCode", acCode, ""),
-					    makeInputElement("hidden", "studentId", studentId, ""),
-					    makeInputElement("hidden", "tier", tier, "")];
+					    makeInfputElement("hidden", "acCode", acCode, ""),
+					    makeInfputElement("hidden", "studentId", studentId, ""),
+					    makeInfputElement("hidden", "tier", tier, "")];
 	
 	for(idx=0; idx<clientData.length;idx++){
 		form.appendChild(clientData[idx]);

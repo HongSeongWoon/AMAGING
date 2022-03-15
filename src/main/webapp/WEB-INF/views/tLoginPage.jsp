@@ -5,10 +5,68 @@
 <head>
 <meta charset="UTF-8">
 <title>선생님 로그인</title>
-<script src="resources/js/common.js"></script>
-<script src="resources/js/login.js"></script>
-</head>
 
+</head>
+<script>
+
+function authentication(userCode){
+	 
+	   const userData = [document.getElementsByName("email")[0],
+	   document.getElementsByName("password")[0]];
+	   
+	   const message = [ "email 입력해 주세요!", "퍠쓰워드 입력해 주세요"];
+	   for (let index = 0; index < userData.length; index++) {
+	      if (!isEmpty(userData[index])) {
+	         alert(message[index]);
+	         return;
+	      } 
+	   
+	   }
+	   getPage("login","/Login");
+
+	}
+
+	function getPage(formName,action){
+		   const form = document.getElementsByName(formName)[0];
+		      form.setAttribute("action",action);
+		      form.submit();
+		   
+		}
+	
+function isEmpty(obj){
+   let check = true;
+   if(obj.value == ""){
+      check = false;
+   }
+   return check;
+}
+
+function makeInputElement(type, name, value, placeholder){
+    const input = document.createElement("input");
+    input.setAttribute("type", type);
+    input.setAttribute("name", name);
+    if(value != ""){input.setAttribute("value", value);}
+    if(placeholder != ""){input.setAttribute("placeholder", placeholder);}
+    
+    return input;
+ }
+ 
+function makeForm(fname, faction, fmethod){
+	const form = document.createElement("form");
+	if(fname != ""){form.setAttribute("name", fname);}
+	form.setAttribute("action", faction);
+	form.setAttribute("method", fmethod);
+	return form;
+}
+ 
+/*회원가입페이지 이동*/
+function getJoinPage(userCode) {
+   const f =  makeForm("","/JoinPage","get");	
+   document.body.appendChild(f);
+   f.submit();
+}
+
+</script>
 <style>
 
 
@@ -65,7 +123,7 @@
          margin-top:31.6%;}         
 #pabox{ width:90%; height:75%;  position:fixed;   }
 </style>
-<body class ="background" onLoad = "sendMessage('${msg}')">
+<body class ="background">
 <form name ="login" action="/Login" method="post">
 <input	type="hidden" value='3' name="userCode" />
 <div id="basic">
@@ -83,13 +141,13 @@
       </div>
       <div>
           <div>
-            <input type="button" id="loginbtn" value="LOGIN" onClick="authentication()"/>
+            <input type="button" id="loginbtn" value="LOGIN" onClick="authentication('3')"/>
          </div>
       </div>
    
       <div id="bottombox">
          <div id="findPassword"  onClick="">비밀번호 찾기 </div>
-            <div id="join" onClick="getJoinPage(3)">회원가입</div>
+            <div id="join" onClick="getJoinPage()">회원가입</div>
       </div>
    </div>
 </div>
