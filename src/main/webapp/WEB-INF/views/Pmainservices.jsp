@@ -6,6 +6,56 @@
 <meta charset="UTF-8">
 <title>학부모 메인 페이지</title>
  <script src="resources/js/common.js"></script>
+ <script>
+/*리스트를 ajax로 가져옴*/
+	function getChildList(uId){
+		const data = "userId="+ encodeURIComponent(uId)
+		getAjaxData("/GetChildList", data, "childListBox","post" );
+		
+		
+	} 
+let cc;
+/*가져온 리스트를 셀렉트 박스에 출력*/
+	function childListBox(cList){
+		cc=cList;
+		let cb = document.getElementById("childBox");
+		let idx = 0;
+		let cbData = '<select name="childSelect" id="childSelect" onchange="childName(this)">';
+		    cbData += '<option value="자녀선택">자녀선택';
+		    cbData += '</option>';
+		for(idx;idx<cList.length;idx++){
+			cbData += '<option value="'+cList[idx].sname+'">'+cList[idx].sname;
+		    cbData += '</option>';
+		}
+		cbData += '</select>';
+		cb.innerHTML = cbData; 
+		
+	}
+	/*셀렉트박스에서 자녀 선택할경우  
+	  이름과 같이 가져온 이메일,학생코드를
+	  히든속성의 input테그에 삽입*/
+	function childName(cName){
+		let idx1 =0;
+		
+		const value = cName.value;
+		
+		var cn = document.getElementById("childName");
+	
+		for(idx1;idx1<cc.length;idx1++){
+			document.getElementById("sEmail").value="";
+			let name1 = cc[idx1].sname;
+
+			if(name1 == value){
+			document.getElementById("sEmail").value=cc[idx1].semail;
+			document.getElementById("sCode").value=cc[idx1].userId;
+			}
+		}
+		
+		cn.innerText = value;
+		
+	}
+ 
+ </script>
 <style>
 #frame {width:100%; height:100%;
    position:absolute; top:5%;}
@@ -222,20 +272,26 @@ text-align:center;
 #sessionBox{ width:30%; height:10%; 
 position:absolute; left:45%; top:1%;
 }
+
+#childBox{width: 45%;
+					height: 20%;
+					float:right;}
 </style>
 
 </head>
-<body onload="">
+<body onload="getChildList('${sessionInfo.userId}')">
    <form name="" action="" method="get">
       <div id="basic">
          <div id="frame">
             <div id="logo"></div>
-             <div id="sessionBox"><span id="session">정재영 부모 ${sessionInfo.userName}님 환영합니다.
-             	<input	type="hidden" value='${sessionInfo.userId}' id="userId" />
-				<input	type="hidden" value='${sessionInfo.userCode}' id="userCode" />
+             <div id="sessionBox"><span id="session"><span id='childName'>${sessionInfo.stName}</span>부모 ${sessionInfo.userName}님 환영합니다.
+             	<input	type="hidden" value='${sessionInfo.userId}' name="userId" />
+				<input	type="hidden" value='${sessionInfo.userCode}' name="userCode" />
+				<input	type="hidden" value="" name="sEmail" id ="sEmail" />
+				<input	type="hidden" value="" name="sCode" id ="sCode" />
 			</span></div>
             <div id="logOut">
-               <input type="button" id="btn" value="로그아웃" onclick="" onmouseover="mouseOver(this)" onmouseout="mouseLeave(this)">
+               <input type="button" id="btn" value="로그아웃" onclick="accessOut()" onmouseover="mouseOver(this)" onmouseout="mouseLeave(this)">
             </div>
          </div>
          
@@ -250,7 +306,9 @@ position:absolute; left:45%; top:1%;
                    <input type="button" class="bothB" id="sixB" onclick="">
                     <input type="button" class="bothB" id="sevenB" onclick="">  
                </div>
-            <div id="mainpage"></div>
+            <div id="mainpage">
+            	<div id="childBox" name="childBox"></div>
+            </div>
          </div>
       </div>
    </form>
