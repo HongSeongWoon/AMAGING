@@ -40,4 +40,6 @@ public interface QMLOracleMapper {
 	/*자식리스트*/
 	public List<ChildCode> displayChildList(ChildCode child);
 	
+	/*학사일정 8개 getAcCode, getPlanList, setPlanList, updPlanList, delPlanList*/
+	
 }
