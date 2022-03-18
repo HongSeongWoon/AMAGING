@@ -14,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 import amaging.schedu.attendance.Attendance;
 import amaging.schedu.auth.Authentication;
 import amaging.schedu.bean.Login;
+
 import amaging.schedu.bean.RegParent;
+
 import amaging.schedu.bean.UserInfo;
 import amaging.schedu.calender.Calender;
 import amaging.schedu.fee.Fee;
@@ -60,16 +62,18 @@ public class MovePageController {
    public String moveLoginPage(ModelAndView mav, @ModelAttribute Login lg) {
 	  String page=null;
       if(lg.getUserCode() == 3) {
-         /*�����Էα���������*/
+
+         /*선생님로그인페이지*/
     	  page = "tLoginPage";
       }else if(lg.getUserCode() == 2) {
-         /*�л��α���������*/
+         /*학생로그인페이지*/
     	  page = "sLoginPage";
       }else if(lg.getUserCode() == 4) {
-          /*�����ڷα���������*/
+          /*관리자로그인페이지*/
     	  page = "aLoginPage";
        }else {
-    	   /*�кθ�α���������*/
+    	   /*학부모로그인페이지*/
+
     	   page = "pLoginPage";
        }
       return page;
@@ -141,6 +145,7 @@ public class MovePageController {
 		pi.backController(4, mav);
 		return mav;
 	}
+
    @PostMapping("/SQnAPage")
    public ModelAndView sQnAPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
       qna.backController(0, mav);

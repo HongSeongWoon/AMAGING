@@ -64,4 +64,5 @@ function getPage(formName,action){
    const form = document.getElementsByName(formName)[0];
       form.setAttribute("action",action);
       form.submit();  
+
 }

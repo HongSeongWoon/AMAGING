@@ -75,6 +75,6 @@
 	<!-- 학사일정 -->
 	<select id="getAcList" parameterType="amaging.schedu.bean.ACPlan" resultType="amaging.schedu.bean.ACPlan">
 		SELECT SA_ACCODE AS ACCODE, #{sDate} AS SDATE FROM SA WHERE SA_STCODE = #{userId}
-	</select>
-		
+	</select>		
+
 </mapper>

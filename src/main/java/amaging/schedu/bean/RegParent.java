@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class RegParent {
+
 	String userId;
 	String pEmail;
 	String prCode;
@@ -12,3 +13,4 @@ public class RegParent {
 	String regPrInfo;
 	String sEmail;
 }
+
