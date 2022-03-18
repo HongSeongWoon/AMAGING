@@ -26,7 +26,7 @@ function getAjaxData(action,data,fn,method){
 	const ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 			if ( ajax.readyState== 4 && ajax.status == 200) {		
-				window[fn](JSON.parse(ajax.responseText));						
+				window[fn](ajax.responseText);						
 			}
 		};
 		if(method=="get"){
@@ -41,10 +41,25 @@ function getAjaxData(action,data,fn,method){
 		
 }
 function sendMessage(message){
-	alert(message);
+   if(message!=""){
+   alert(message);
+   }   
 }
-
-function accessOut(){}
+function accessOut(){
+      const form = makeForm("", "/Logout", "post");
+      const uId = document.getElementsByName("userId")[0].value;
+      const uc = document.getElementsByName("userCode")[0].value;
+      
+      const userId = makeInputElement("hidden", "userId", uId, "");
+      const userCode = makeInputElement("hidden", "userCode", uc, "");
+      
+      form.appendChild(userId);
+      form.appendChild(userCode);
+      
+      document.body.appendChild(form);
+       form.submit();
+    
+}
 function getPage(formName,action){
    const form = document.getElementsByName(formName)[0];
       form.setAttribute("action",action);

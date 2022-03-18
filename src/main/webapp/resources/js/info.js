@@ -1,8 +1,10 @@
 let currentRecord=null;
-function sendMessage(message){
+/*function sendMessage(message){
 	alert(message);
-}
-function infoPage(category){
+}*/
+function dotClick(){
+	let category=sessionStorage.getItem("category");
+	if(category==null){category="regAcademy";}
 	document.getElementById(category).click();
 }
 function regAcademy(){
@@ -12,6 +14,7 @@ function regAcademy(){
 	getAjaxData("RegAcademy",data,"sendMessage","post");
 }
 function regAcForm(){
+	sessionStorage.setItem("category","regAcademy");
 	const mainpage=document.getElementById("mainpage");
 	mainpage.innerHTML="";
 	let acbox=createDiv("acbox","acbox");
@@ -37,9 +40,17 @@ function searchAcForm(){
 									+"onclick='closeModal()' style='border-radius: 10px;background-color: #EAEAEA;width:50%; height:100%; border: 1px solid #EAEAEA;'/></div></div></div></div>";
 }
 function searchAc(){
+	const record=document.getElementsByClassName("record");
+	while(record.length>0){
+		record[0].remove();
+	}
 	const acName=document.getElementsByName("acName")[0].value;
-	const data="acName="+acName;
-	getAjaxData("SearchAc",data,"displayAcList","post");
+	if(acName==""){
+		alert("학원 이름을 입력해주세요!");
+	}else{
+		const data="acName="+acName.toUpperCase();
+		getAjaxData("SearchAc",data,"displayAcList","post");	
+	}
 }
 function displayAcList(pacList){
 	const acList=JSON.parse(pacList);
@@ -57,11 +68,13 @@ function displayAcList(pacList){
 }
 function selectBotton(obj){
 	if(currentRecord!=null){
+		currentRecord.style.backgroundColor="#ffffff";
 		currentRecord.style.color="black";
 		currentRecord=null;
 	}
 	currentRecord=obj;
-	obj.style.color="red";
+	obj.style.backgroundColor="#FF2E2E";
+	obj.style.color="#ffffff";
 }
 function selectList(){
 	if(currentRecord!=null){
@@ -75,6 +88,7 @@ function selectList(){
 	
 }
 function parentRegForm(){
+	sessionStorage.setItem("category","regParents");
 	const mainpage=document.getElementById("mainpage");
 	mainpage.innerHTML="";
 	let prbox=createDiv("prbox","prbox");
@@ -84,20 +98,39 @@ function parentRegForm(){
 }
 
 function checkParentEmail(){
-	const data="pEmail="+document.getElementsByName("pEmail")[0].value;
-	getAjaxData("CheckParentEmail",data,"confirmPr","post");
+	const pEmail=document.getElementsByName("pEmail")[0].value;
+	if(pEmail==""){
+		alert("등록할 부모님의 이메일을 입력해주세요.");
+	}else{
+		const data="pEmail="+pEmail;
+		getAjaxData("CheckParentEmail",data,"confirmPr","post");	
+	}
 }
 function confirmPr(pPrInfo){
 	const prInfo=JSON.parse(pPrInfo);
-	const pEmail=document.getElementsByName("pEmail")[0].value;
-	let check=confirm(prInfo.prName+"("+pEmail+")님을 부모님으로 등록하시겠습니까?");
-	if(check==true){
-		const data="userId="+document.getElementsByName("userId")[0].value
-					+"pEmail="+pEmail
-					+"prCode="+pPrInfo.prCode
-					+"studentName"+document.getElementsByName("userName")[0].value
-		getAjaxData("ParentRegEmail",data,"sendMessage","post");
-	}
+	if(prInfo.prName==undefined){
+		alert("등록된 정보가 없습니다. 회원가입 한 부모님의 이메일을 입력해주세요.");
+	}else{
+		const pEmail=document.getElementsByName("pEmail")[0].value;
+		let check=confirm(prInfo.prName+"("+pEmail+")님을 부모님으로 등록하시겠습니까?"
+							+"\n 요청은 취소할 수 없습니다. 다시한번 확인해 주세요.");
+		if(check==true){
+			const data="userId="+document.getElementsByName("userId")[0].value
+						+"&pEmail="+pEmail
+						+"&prCode="+prInfo.prCode
+						+"&studentName="+document.getElementsByName("userName")[0].value
+			getAjaxData("ParentRegEmail",data,"sendMessage","post");
+		}
+	}	
+}
+function parentReg(action,userId, prCode){
+	const data="userId="+userId
+				+"&prCode="+prCode;
+	getAjaxData(action,data,"closePage","post")
+}	
+function closePage(message){
+	alert(message);
+	window.close();
 }
 function closeModal(){
 	const mainpage=document.getElementById("mainpage");

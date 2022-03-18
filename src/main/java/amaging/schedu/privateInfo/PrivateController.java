@@ -16,17 +16,29 @@ import amaging.schedu.bean.UserInfo;
 public class PrivateController {
 	@Autowired
 	private PrivateInfo pi;
-	@PostMapping("/ParentRegEmail")
-	public ModelAndView parentRegEmail(ModelAndView mav, @ModelAttribute RegParent regp) {
+	@PostMapping(value="/ParentRegEmail", produces = "application/text; charset=UTF-8")
+	public String parentRegEmail(ModelAndView mav, @ModelAttribute RegParent regp) {
 		mav.addObject("regp", regp);
 		pi.backController(3, mav);
-		return mav;
+		return (String)mav.getModelMap().getAttribute("message");
 	}
 	@PostMapping("/CheckParentEmail")
 	public RegParent checkParentEmail(ModelAndView mav, @ModelAttribute RegParent regp) {
 		mav.addObject("regp",regp);
 		pi.backController(2, mav);
 		return (RegParent)mav.getModelMap().getAttribute("prInfo");
+	}
+	@PostMapping(value="/UpdParent", produces = "application/text; charset=UTF-8")
+	public String updParent(ModelAndView mav, @ModelAttribute RegParent regp) {
+		mav.addObject("regp",regp);
+		pi.backController(5, mav);
+		return (String)mav.getModelMap().getAttribute("message");
+	}
+	@PostMapping(value="/RejectParent", produces = "application/text; charset=UTF-8")
+	public String delParent(ModelAndView mav, @ModelAttribute RegParent regp) {
+		mav.addObject("regp",regp);
+		pi.backController(8, mav);
+		return (String)mav.getModelMap().getAttribute("message");
 	}
 	@SuppressWarnings("unchecked")
 	@PostMapping("/SearchAc")

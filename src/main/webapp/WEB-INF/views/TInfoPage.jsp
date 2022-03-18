@@ -339,9 +339,10 @@ position:absolute; left:45%; top:1%;
       <div id="basic">
          <div id="frame">
             <div id="logo"></div>
-             <div id="sessionBox"><span id="session">김현우님 환영합니다.</span></div>
-             <input type="hidden" name="userCode" value="3"/>
-			 <input type="hidden" name="userId" value="T1010"/>
+             <div id="sessionBox"><span id="session">${sessionInfo.userName}님 환영합니다.
+             	<input	type="hidden" value='${sessionInfo.userId}' name="userId" />
+				<input	type="hidden" value='${sessionInfo.userCode}' name="userCode" />
+            </span></div>
             <div id="logOut">
                <input type="button" id="btn" value="로그아웃" onclick="" onmouseover="mouseOver(this)" onmouseout="mouseLeave(this)">
             </div>

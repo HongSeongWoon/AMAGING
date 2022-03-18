@@ -9,4 +9,6 @@ public class RegParent {
 	String prCode;
 	String prName;
 	String studentName;
+	String regPrInfo;
+	String sEmail;
 }

@@ -337,20 +337,25 @@
 .searchBtn{
  border-radius: 10px; background-color: #FFBB00; width:15%; height:40px; border: 1px solid #FFBB00;
 } 
+.prbox{
+	margin-left:25%;
+	margin-top:10%;
+	width: 50%;	
+	height: 20%;
+}
 </style>
 
 </head>
-<body onload="infoPage('${category}')">
+<body onload="infoPage()">
 	<form name="SInfo" action="" method="post">
 		<div id="basic">
 			<div id="frame">
 				<div id="logo"></div>
-				<div id="sessionBox">
-					<span id="session">김현우님 환영합니다.</span>
-					<input type="hidden" name="userName" value="김현우"/>
-					<input type="hidden" name="userCode" value="2"/>
-					<input type="hidden" name="userId" value="S1023"/>
-				</div>
+				<div id="sessionBox"><span id="session">${sessionInfo.userName}님 환영합니다.
+				 	<input	type="hidden" value='${sessionInfo.userName}' name ="userName" />
+				 	<input	type="hidden" value='${sessionInfo.userId}' name="userId" />
+					<input	type="hidden" value='${sessionInfo.userCode}' name="userCode" />
+			    </span></div>
 				<div id="logOut">
 					<input type="button" id="btn" value="로그아웃" onclick=""
 						onmouseover="mouseOver(this)" onmouseout="mouseLeave(this)">
@@ -369,7 +374,7 @@
 					<div class="div1">
 						<div class="div2" id="regAcademy" onclick="regAcForm()">●&nbsp;&nbsp;학원 등록
 						</div>
-						<div class="div2" onclick="parentRegForm()">●&nbsp;&nbsp;부모님 등록</div>
+						<div class="div2" id="regParents" onclick="parentRegForm()">●&nbsp;&nbsp;부모님 등록</div>
 						<div class="div2" onclick="">●&nbsp;&nbsp;비밀번호 변경</div>
 						<div class="div2" onclick="">●&nbsp;&nbsp;회원탈퇴</div>
 					</div>

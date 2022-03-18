@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import amaging.schedu.attendance.Attendance;
 import amaging.schedu.auth.Authentication;
 import amaging.schedu.bean.Login;
+import amaging.schedu.bean.RegParent;
 import amaging.schedu.bean.UserInfo;
 import amaging.schedu.calender.Calender;
 import amaging.schedu.fee.Fee;
@@ -128,12 +129,18 @@ public class MovePageController {
       ps.backController(0, mav);
       return mav;
    }
-   @GetMapping("/InfoPage")
+   @PostMapping("/InfoPage")
  	public ModelAndView infoPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
  		mav.addObject("uf",uf);
  		pi.backController(1, mav);
  		return mav;
  	}
+   @GetMapping("/UpdPrPage")
+	public ModelAndView updPrPage(ModelAndView mav, @ModelAttribute RegParent regp) {
+	    mav.addObject("regp",regp);
+		pi.backController(4, mav);
+		return mav;
+	}
    @PostMapping("/SQnAPage")
    public ModelAndView sQnAPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
       qna.backController(0, mav);
