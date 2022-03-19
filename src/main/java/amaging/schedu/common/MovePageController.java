@@ -80,7 +80,7 @@ public class MovePageController {
    }
    @PostMapping("/AcPlanPage")
    public ModelAndView acPlanPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
-      cal.backController(1, mav);
+      cal.backController(1, mav.addObject("uf", uf));
       return mav;
    }
    @PostMapping("/PSClassPage")

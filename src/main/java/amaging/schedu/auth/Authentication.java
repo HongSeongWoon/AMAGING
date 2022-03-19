@@ -56,26 +56,21 @@ public class Authentication extends amaging.schedu.common.CommonMethod{
 				/*세션bean에 정보담기*/
 				uf=om.getTeacherInfo(lg);
 				this.om.setAccessHistory(uf);
-				mav.addObject("accessInfo", uf);
 				page = "Tmainservices";
 			}else if(lg.getUserCode() == 1&&this.convertToBoolean(om.isParentsEmail(lg))){
 				uf=om.getParentInfo(lg);
 				this.om.setAccessHistory(uf);
-				mav.addObject("accessInfo", om.getParentInfo(lg));
 				page = "Pmainservices";
 			}else if(lg.getUserCode() == 2&&this.convertToBoolean(om.isStudentEmail(lg))){
 				uf=om.getStudentInfo(lg);
 				this.om.setAccessHistory(uf);
-				mav.addObject("accessInfo", om.getStudentInfo(lg));
 				page = "Smainservices";
 			}else if(lg.getUserCode() == 4&&this.convertToBoolean(om.isAdminCode(lg))) {
 				uf=om.getAdminInfo(lg);
 				this.om.setAdminAccessHistory(uf);
-				mav.addObject("accessInfo", om.getAdminInfo(lg));
 				page = "Amainservices";
 			}
-
-			pu.setAttribute("sessionInfo", mav.getModel().get("accessInfo"));
+			pu.setAttribute("sessionInfo", uf);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -162,8 +157,8 @@ public class Authentication extends amaging.schedu.common.CommonMethod{
 	}else{tran=false;}
 		// Commit;
 		this.setTransactionEnd(tran);
-		mav.getModelMap().addAttribute("msg", message);
-		mav.setViewName(page);
+			mav.setViewName(page);
+			mav.getModelMap().addAttribute("msg", message);
 	}
 	private void getChildList(ModelAndView mav) {
 		ChildCode cc = new ChildCode();

@@ -26,7 +26,7 @@ function getAjaxData(action,data,fn,method){
 	const ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 			if ( ajax.readyState== 4 && ajax.status == 200) {		
-				window[fn](JSON.parse(ajax.responseText));
+				window[fn](ajax.responseText);
 						
 			}
 		};
@@ -41,14 +41,11 @@ function getAjaxData(action,data,fn,method){
 		}
 		
 }
+
 function sendMessage(message){
-	/* 저는 이렇게 제어했습니다.
 	if(message!=""){
 	alert(message);
-	} */
-	/*원본 */
-	alert(message);
-	
+	} 
 }
 
 function accessOut(){
