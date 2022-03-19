@@ -6,56 +6,9 @@
 <meta charset="UTF-8">
 <title>학부모 메인 페이지</title>
  <script src="resources/js/common.js"></script>
- <script>
-/*리스트를 ajax로 가져옴*/
-	function getChildList(uId){
-		const data = "userId="+ encodeURIComponent(uId)
-		getAjaxData("/GetChildList", data, "childListBox","post" );
-		
-		
-	} 
-let cc;
-/*가져온 리스트를 셀렉트 박스에 출력*/
-	function childListBox(cList){
-		cc=cList;
-		let cb = document.getElementById("childBox");
-		let idx = 0;
-		let cbData = '<select name="childSelect" id="childSelect" onchange="childName(this)">';
-		    cbData += '<option value="자녀선택">자녀선택';
-		    cbData += '</option>';
-		for(idx;idx<cList.length;idx++){
-			cbData += '<option value="'+cList[idx].sname+'">'+cList[idx].sname;
-		    cbData += '</option>';
-		}
-		cbData += '</select>';
-		cb.innerHTML = cbData; 
-		
-	}
-	/*셀렉트박스에서 자녀 선택할경우  
-	  이름과 같이 가져온 이메일,학생코드를
-	  히든속성의 input테그에 삽입*/
-	function childName(cName){
-		let idx1 =0;
-		
-		const value = cName.value;
-		
-		var cn = document.getElementById("childName");
-	
-		for(idx1;idx1<cc.length;idx1++){
-			document.getElementById("sEmail").value="";
-			let name1 = cc[idx1].sname;
+ <script src="resources/js/acPlan.js"></script>
+ <script src="resources/js/childList.js"></script>
 
-			if(name1 == value){
-			document.getElementById("sEmail").value=cc[idx1].semail;
-			document.getElementById("sCode").value=cc[idx1].userId;
-			}
-		}
-		
-		cn.innerText = value;
-		
-	}
- 
- </script>
 <style>
 #frame {width:100%; height:100%;
    position:absolute; top:5%;}
@@ -66,7 +19,7 @@ let cc;
    left: 5%;
    top:2.5%;
    float: left;
-   background-image: url(resources/images/'부모님로고1.png');
+   background-image: url(resources/images/부모님로고1.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: left center;
@@ -123,7 +76,7 @@ let cc;
    height: 80%;
    float: right;
    margin-right: 5.5%;
-   background-image: url(resources/images/'부모.png');
+   background-image: url(resources/images/부모.png);
    background-size: 25% 50%;
    background-repeat: no-repeat;
    background-position: center center;
@@ -153,7 +106,7 @@ let cc;
    margin-top:5%;
    margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'학사일정4.png');
+   background-image: url(resources/images/학사일정4.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: center center;
@@ -164,7 +117,7 @@ let cc;
 #twoB {
 margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'성적.png');
+   background-image: url(resources/images/성적.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -175,7 +128,7 @@ margin-bottom:3%;
 #threeB {
 margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'출석.png');
+   background-image: url(resources/images/출석.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -186,7 +139,7 @@ margin-bottom:3%;
 #fourB {
 margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'시간표.png');
+   background-image: url(resources/images/시간표.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -197,7 +150,7 @@ margin-bottom:3%;
 #fiveB {
 	margin-bottom:3%;
    float: left;
-   background-image: url(resources/images/'납부내역.png');
+   background-image: url(resources/images/납부내역.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -208,7 +161,7 @@ margin-bottom:3%;
 #sixB{
 margin-bottom:3%;
  float: left;
-   background-image: url(resources/images/'상담.png');
+   background-image: url(resources/images/상담.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -217,7 +170,7 @@ margin-bottom:3%;
 }
 #sevenB{
  float: left;
-   background-image: url(resources/images/'정보수정.png');
+   background-image: url(resources/images/정보수정.png);
    background-size: 100% 80%;
    background-repeat: no-repeat;
    background-position: right center;
@@ -280,7 +233,7 @@ position:absolute; left:45%; top:1%;
 
 </head>
 <body onload="getChildList('${sessionInfo.userId}')">
-   <form name="" action="" method="get">
+   <form name="pmainservice" action="" method="post">
       <div id="basic">
          <div id="frame">
             <div id="logo"></div>
@@ -298,13 +251,13 @@ position:absolute; left:45%; top:1%;
          <div id="body">
             <div id="colorline"></div>
                <div class="servicebutton">
-                  <input type="button" class="bothB" id="oneB" onclick=""> 
+                  <input type="button" class="bothB" id="oneB" onclick="getAcPlanPage('pmainservice','/AcPlanPage')"> 
                   <input type="button" class="bothB" id="twoB" onclick=""> 
                   <input type="button" class="bothB" id="threeB" onclick=""> 
                   <input type="button" class="bothB" id="fourB" onclick="">
                    <input type="button" class="bothB" id="fiveB" onclick=""> 
                    <input type="button" class="bothB" id="sixB" onclick="">
-                    <input type="button" class="bothB" id="sevenB" onclick="">  
+                    <input type="button" class="bothB" id="sevenB" onclick="getAcPlanPage('pmainservice','/InfoPage')">  
                </div>
             <div id="mainpage">
             	<div id="childBox" name="childBox"></div>

@@ -217,7 +217,7 @@ position:absolute; left:45%; top:1%;
 
 </head>
 <body onload="">
-	<form name="" action="file:///C:/" method="get">
+	<form name="Smainservices" action="" method="post">
 		<div id="basic">
 			<div id="frame">
 				<div id="logo"></div>
@@ -239,7 +239,7 @@ position:absolute; left:45%; top:1%;
 						type="button" class="bothB" id="fourB" onclick=""> <input
 						type="button" class="bothB" id="fiveB" onclick="">
 						<input
-						type="button" class="bothB" id="sixB" onclick="">
+						type="button" class="bothB" id="sixB" onclick="getPage('Smainservices','/InfoPage')">
 				</div>
 				<div id="mainpage"></div>
 			</div>

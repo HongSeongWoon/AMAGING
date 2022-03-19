@@ -12,5 +12,5 @@ public class UserInfo {
 	String stName;
 	String tier;
 	String email;
-	
 }
+
