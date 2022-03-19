@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SPMain</title>
-<script src=""></script>
+<script src="resources/js/common.js"></script>
 <script>
    /*브라우저 67%로 설정하기*/
    /*페이지 이동*/
@@ -200,7 +200,7 @@ h1{color:#A6A6A6; font-size:30%; position:absolute; left:34%; top:36%; }
 </style>
 
 </head>
-<body onLoad="">
+<body onLoad="sendMessage('${message}')">
    <form name="SPpage" action="/LoginPage" method="get">
       <div id="basic">
          <div id="body">

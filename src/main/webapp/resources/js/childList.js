@@ -22,6 +22,7 @@ let cc;
 		    cbData += '</option>';
 		for(idx;idx<cc.length;idx++){
 			cbData += '<option value="'+cc[idx].sname+'">'+cc[idx].sname;
+
 		    cbData += '</option>';
 		}
 		cbData += '</select>';
@@ -34,7 +35,6 @@ let cc;
 	function childName(cName){
 		let idx1 =0;
 	
-		
 		const value = cName.value;
 		
 		var cn = document.getElementById("childName");
@@ -141,3 +141,4 @@ let cc;
 		 plandata +='</span>';
 			list.innerHTML=plandata;
 	}
+

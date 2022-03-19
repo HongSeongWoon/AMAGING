@@ -44,16 +44,17 @@ public class Authentication extends amaging.schedu.common.CommonMethod{
 	private void moveLoginPage(ModelAndView mav) {
 
 	}
+
 	private void login(ModelAndView mav) {
 		Login lg = new Login();
 		UserInfo uf = new UserInfo();
 		lg = (Login) mav.getModel().get("login");
-		String page = "";// 1¹ø page
+		String page = "";// 1ë²ˆ page
 
 		try {
 
 			if (lg.getUserCode() == 3&&this.convertToBoolean(om.isTeacherEmail(lg))) {
-				/*¼¼¼Çbean¿¡ Á¤º¸´ã±â*/
+				/*ì„¸ì…˜beanì— ì •ë³´ë‹´ê¸°*/
 				uf=om.getTeacherInfo(lg);
 				this.om.setAccessHistory(uf);
 				page = "Tmainservices";
@@ -70,11 +71,11 @@ public class Authentication extends amaging.schedu.common.CommonMethod{
 				this.om.setAdminAccessHistory(uf);
 				page = "Amainservices";
 			}
+
 			pu.setAttribute("sessionInfo", uf);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		mav.setViewName(page);
 	   }
 	
@@ -129,29 +130,30 @@ public class Authentication extends amaging.schedu.common.CommonMethod{
 		String page = "";
 		String message ="";
 		boolean tran=false;
-		//PROPAGATION, ISOLATION¼³Á¤
+
+		//PROPAGATION, ISOLATIONì„¤ì •
 		this.setTransactionConf(TransactionDefinition.PROPAGATION_REQUIRED, 
 				TransactionDefinition.ISOLATION_READ_COMMITTED, false);
 		
 		if(rm.getUserCode()==1) {
-			// *PR Å×ÀÌºí¿¡ µ¥ÀÌÅÍ Ins
+			// *PR í…Œì´ë¸”ì— ë°ì´í„° Ins
 				if(this.convertToBoolean(this.om.setParentsData(rm))) {
 					page="pLoginPage";
-					message="È¸¿øµî·Ï ¼º°ø";
+					message="íšŒì›ë“±ë¡ ì„±ê³µ";
 					tran =true;
 				}
 		}else if(rm.getUserCode()==2) {
-			// *st Å×ÀÌºí¿¡ µ¥ÀÌÅÍ Ins
+			// *st í…Œì´ë¸”ì— ë°ì´í„° Ins
 			if(this.convertToBoolean(this.om.setStudentData(rm))) {
 				page="sLoginPage";
-				message="È¸¿øµî·Ï ¼º°ø";
+				message="íšŒì›ë“±ë¡ ì„±ê³µ";
 				tran =true;
 			}
 	}else if(rm.getUserCode()==3) {
-		// *st Å×ÀÌºí¿¡ µ¥ÀÌÅÍ Ins
+		// *st í…Œì´ë¸”ì— ë°ì´í„° Ins
 		if(this.convertToBoolean(this.om.setTeacherData(rm))) {
 			page="tLoginPage";
-			message="È¸¿øµî·Ï ¼º°ø";
+			message="íšŒì›ë“±ë¡ ì„±ê³µ";
 			tran =true;
 		}
 	}else{tran=false;}
