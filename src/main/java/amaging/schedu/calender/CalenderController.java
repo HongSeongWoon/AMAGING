@@ -2,9 +2,10 @@ package amaging.schedu.calender;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 public class CalenderController {
 	private Calender cal;
 	

@@ -4,18 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 로그인</title>
- <script src="resources/js/common.js"></script>
+<title>부모님 로그인</title>
+
 
 </head>
-
 <script>
 
 function authentication(userCode){
-
-  
-   const userData = [document.getElementsByName("adCode")[0],
-	   document.getElementsByName("password")[0]];
+ 
+   const userData = [document.getElementsByName("email")[0],
+   document.getElementsByName("password")[0]];
    
    const message = [ "email 입력해 주세요!", "퍠쓰워드 입력해 주세요"];
    for (let index = 0; index < userData.length; index++) {
@@ -25,8 +23,8 @@ function authentication(userCode){
       } 
    
    }
-
    getPage("login","/Login");
+
 }
 
 function getPage(formName,action){
@@ -53,7 +51,7 @@ function makeInputElement(type, name, value, placeholder){
     
     return input;
  }
- 
+
 function makeForm(fname, faction, fmethod){
 	const form = document.createElement("form");
 	if(fname != ""){form.setAttribute("name", fname);}
@@ -61,14 +59,15 @@ function makeForm(fname, faction, fmethod){
 	form.setAttribute("method", fmethod);
 	return form;
 }
- 
+
 /*회원가입페이지 이동*/
 function getJoinPage(userCode) {
    const f =  makeForm("","/JoinPage","get");	
+   const hidden = makeInputElement("hidden","userCode",userCode,"");
+   f.appendChild(hidden);
    document.body.appendChild(f);
    f.submit();
 }
-
 </script>
 <style>
 
@@ -85,7 +84,7 @@ function getJoinPage(userCode) {
 		  }
 #logo	{width:35%; height:20%; 
 		 position:absolute; top:20%; left:50%; 
-		 background-image:url(resources/images/관리자로고.png); background-size:95% 70%;   background-repeat : no-repeat; background-position:left center;   transform: translate(-50%, -50%);
+		 background-image:url(resources/images/부모님로고.png); background-size:95% 70%;   background-repeat : no-repeat; background-position:left center;   transform: translate(-50%, -50%);
 		 }
 #inBody   {width:30%; height:30%;
 		   position:absolute; top:50%; left:50%;
@@ -94,20 +93,20 @@ function getJoinPage(userCode) {
 #welcome  {text-align:center; font-size:35px; color: #000000;
 		   position:absolute; top:-3%; left: 30%;
 		   }
-.inputE    {height: 20%;width:60%;font-size:100%;border:1px solid #EF90FF ;
+.inputE    {height: 20%;width:60%;font-size:100%;border:1px solid #99E000  ;
 		    position:absolute; top:27%; left: 8%;}
 		    
-.inputP    {height: 20%;width:60%; font-size:100%;border:1px solid #EF90FF ;
+.inputP    {height: 20%;width:60%; font-size:100%;border:1px solid #99E000  ;
 		    position:absolute; top:50%; left: 8%;}
 		    
-#loginbtn {background-color: #EF90FF ; color:#FFFFFF; height: 48%;
+#loginbtn {background-color: #99E000  ; color:#FFFFFF; height: 48%;
 		   line-height: 1%;width:22%;
            font-size:150%;text-align:center;
            box-shadow : 5px 5px 5px black; transition-duration:0.3s;
            position:absolute; top:23%; left: 65%;cursor: pointer;
            border-radius:8px;}
            
-#loginbtn:active {background-color: #E14FCA  ; color:#FFFFFF; height: 48%;
+#loginbtn:active {background-color: #63AA00  ; color:#FFFFFF; height: 48%;
 				  line-height: 10%;width:22%;
         		  font-size:150%;text-align:center;
          		  box-shadow : none; margin-left:1%; margin-top:1%;}
@@ -127,16 +126,16 @@ function getJoinPage(userCode) {
 #pabox{ width:90%; height:75%;  position:fixed;   }
 </style>
 <body class ="background">
-<form name ="login" action="/Login" method="post">
-<input	type="hidden" value='4' name="userCode" />
+<form name ="login"  method="post">
+<input	type="hidden" value="1" name="userCode" />
 <div id="basic">
 <div id="body">
 	<div id="logo"></div>
 	<div id="inBody">
-		<div id="welcome">관리자 로그인</div>
+		<div id="welcome">학부모 로그인</div>
 		<div id="pabox">
 			<div>
-				<input class = "inputE" type="text" name="adCode" placeholder="ID 입력 "/>
+				<input class = "inputE" type="text" name="email" placeholder="Email 입력 "/>
 			</div>
 			<div>
 				<input class = "inputP" type="password" name="password" placeholder=" PASSWORD"/>
@@ -144,13 +143,13 @@ function getJoinPage(userCode) {
 		</div>
 		<div>
  			<div>
-				<input type="button" id="loginbtn" value="LOGIN" onClick="authentication('4')"/>
+				<input type="button" id="loginbtn" value="LOGIN" onClick="authentication()"/>
 			</div>
 		</div>
    
 		<div id="bottombox">
 			<div id="findPassword"  onClick="">비밀번호 찾기 </div>
-      		<div id="join" onClick="getJoinPage()">회원가입</div>
+      		<div id="join" onClick="getPage()">회원가입</div>
 		</div>
 	</div>
 </div>
