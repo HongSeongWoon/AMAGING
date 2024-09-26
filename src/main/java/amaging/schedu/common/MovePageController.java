@@ -14,6 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 import amaging.schedu.attendance.Attendance;
 import amaging.schedu.auth.Authentication;
 import amaging.schedu.bean.Login;
+
+import amaging.schedu.bean.RegParent;
+
 import amaging.schedu.bean.UserInfo;
 import amaging.schedu.calender.Calender;
 import amaging.schedu.fee.Fee;
@@ -59,16 +62,18 @@ public class MovePageController {
    public String moveLoginPage(ModelAndView mav, @ModelAttribute Login lg) {
 	  String page=null;
       if(lg.getUserCode() == 3) {
-         /*¼±»ı´Ô·Î±×ÀÎÆäÀÌÁö*/
+
+         /*ì„ ìƒë‹˜ë¡œê·¸ì¸í˜ì´ì§€*/
     	  page = "tLoginPage";
       }else if(lg.getUserCode() == 2) {
-         /*ÇĞ»ı·Î±×ÀÎÆäÀÌÁö*/
+         /*í•™ìƒë¡œê·¸ì¸í˜ì´ì§€*/
     	  page = "sLoginPage";
       }else if(lg.getUserCode() == 4) {
-          /*°ü¸®ÀÚ·Î±×ÀÎÆäÀÌÁö*/
+          /*ê´€ë¦¬ìë¡œê·¸ì¸í˜ì´ì§€*/
     	  page = "aLoginPage";
        }else {
-    	   /*ÇĞºÎ¸ğ·Î±×ÀÎÆäÀÌÁö*/
+    	   /*í•™ë¶€ëª¨ë¡œê·¸ì¸í˜ì´ì§€*/
+
     	   page = "pLoginPage";
        }
       return page;
@@ -80,7 +85,7 @@ public class MovePageController {
    }
    @PostMapping("/AcPlanPage")
    public ModelAndView acPlanPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
-      cal.backController(1, mav);
+      cal.backController(1, mav.addObject("uf", uf));
       return mav;
    }
    @PostMapping("/PSClassPage")
@@ -129,10 +134,18 @@ public class MovePageController {
       return mav;
    }
    @PostMapping("/InfoPage")
-   public ModelAndView infoPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
-      pi.backController(0, mav);
-      return mav;
-   }
+ 	public ModelAndView infoPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
+ 		mav.addObject("uf",uf);
+ 		pi.backController(1, mav);
+ 		return mav;
+ 	}
+   @GetMapping("/UpdPrPage")
+	public ModelAndView updPrPage(ModelAndView mav, @ModelAttribute RegParent regp) {
+	    mav.addObject("regp",regp);
+		pi.backController(4, mav);
+		return mav;
+	}
+
    @PostMapping("/SQnAPage")
    public ModelAndView sQnAPage(ModelAndView mav, @ModelAttribute UserInfo uf) {
       qna.backController(0, mav);
